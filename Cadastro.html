@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crie sua conta</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        
+        <script type="text/javascript" src="JQuery.js"></script>
+        <script type="text/javascript">
+            
+            $(document).ready(function(){
+                 $("input").blur(function(){
+                     if($(this).val() == "")
+                    {
+                        $(this).css({"border-color" : "red", "padding": "2px"});
+                        $('#feedback').html("Campo obrigatório");
+
+                    }
+                });
+                 $("#BotaoCadastrar").click(function(){
+                    var cont = 0;
+                    $("#form input").each(function(){
+                    if($(this).val() == "")
+                    {
+                     $(this).css({"border" : "1px solid #F00", "padding": "2px"});
+                     cont++;
+                     $('#feedback').html("Campos obrigatórios");
+                    }
+                    });
+                    if(cont == 0)
+                    {
+                        $('#cadastro').submit();
+                        $('#feedback').hide(400);
+                        $(location).attr('href', 'Menu.html');
+                    }
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container" style="height: 800px">
+            <header class="pagina"> Adventurer's Life</header>
+            <article class="artigo1"><h3> Termos de uso e responsabilidade:</h3><br> Não foram escritos ainda
+            então vamos apenas preencher o espaço para ficar bonito.</article>
+            <article class="artigo2">
+               <form name="cadastro" id="form">
+            <fieldset>
+            <p id='feedback'></p>
+            Digite seu nome:
+            <br>
+            <input type="text" name="nome"/>
+            <br><br>
+            Insira um nome de usuário para login:
+            <br>
+            <input type="text" name="nick"/>
+            <br><br>
+            Insira sua data de nascimento:
+            <br>
+            <input type="text" name="nasc"/>
+            <br>
+            Sexo:
+            <br>
+            <input type="radio" name="radio" id="M"/>
+            <label for="M"> Masculino </label>
+            <br>
+            <input type="radio" name="radio" id="F"/>
+            <label for="F"> Feminino </label>            
+            <br>
+            <input type="radio" name="radio" id="S"/>
+            <label for="S"> Outro </label>
+            <br><br>
+            Insira sua senha:
+            <br>
+            <input type="password" name="senha"/>
+            <br><br>
+            Confirme sua senha:
+            <br>
+            <input type="password" name="confsenha"/>
+            <br><br>
+            Insira seu e-mail:
+            <br>
+            <input type="text" name="email"/>
+            <br>
+            Li e aceito os termos de uso:
+            <input type="checkbox" name="checkbox"/>
+            <br>
+            <input class="button" type="reset" value="Limpar" class="button">
+            <a href="#" class="button" id="BotaoCadastrar">Confirmar Cadastro</a>
+            <br>
+            </fieldset>
+        </form>
+            </article>
+            <div class="clearboth"></div>
+            <footer><a href="index.html" class='botaorandom'>Início</a></footer>
+        </div>
+    </body>
+</html>

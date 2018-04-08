@@ -1,0 +1,250 @@
+body{
+    background-image: url("Imagens e coisas de mídia/Imagem1.png"), url("Imagens e coisas de mídia/fundo.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, top;
+    background-size: 300px, cover;
+    background-color: #003300;
+}
+.titulinho{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    font-size:64px;
+    font-family: 'Papyrus';
+    color: #ffffff;
+}
+
+#tituloAvaliacao
+{
+    font-size:64px;
+    font-family: 'Papyrus';
+    color: #000000;
+    margin: 10px auto;
+}
+
+
+.avaliacao{
+            border-radius: 30px;
+            margin: 0px auto;
+            background-color: rgba(255,255,255,0.8);
+            min-height: 200px;           
+        }
+
+.atributosMostraAvaliacao
+{
+    border-radius: 30px;
+    margin: 0px auto;
+    background-color: gray;
+    height: 100%;  
+    max-width: 200px;         
+}
+
+aside.avaliacao{
+    margin: 0px 0.5% auto;
+    max-width: 20%; 
+    background-color: gray;
+    float: left;
+}
+
+article.avaliacao{
+    float: right;
+    
+}
+
+.fotoUsuario{
+
+    margin: 5% 20% 15% 20%;
+    width: 100px;
+    height: auto; 
+    position: inherit;
+    border: 2px solid black;
+}
+
+.nomeUsuario{
+    margin: 0px auto;
+    text-align: center;
+    font-family: 'Papyrus';
+    font-size: 20px;
+    color: black;
+}
+
+.bordaAvaliacao{
+    position: relative;
+    border-radius: 30px;
+    width: 800px;
+    height: 200px;
+    border: 5px solid black;
+}   
+
+td{
+    border: solid black 2px;
+    padding-left: 40px;
+}
+
+th{
+    border: solid black 2px;
+     padding-left: 40px;
+}
+
+.botaotitul{
+    position: relative;
+    display: inline-block;
+    top:60%;
+    font-family: 'Papyrus';
+    font-size: 32px !important;
+}    
+a:link{
+    text-decoration: none;
+    color: white;
+    background-color: #888888;
+}
+
+a:visited{
+    text-decoration: none;
+    color: white;
+    background-color: #888888;
+}
+
+a:hover{
+    background-color: #666666;
+    color: white;
+}
+a:active{
+    text-decoration: none;
+    color: black;
+    background-color: white;
+}
+
+*{
+    box-sizing: border-box;
+}
+.container{
+    background-color: rgba(255,255,255,0.9);
+    width: 800px;
+    height: 600px;
+    margin: 10px auto;
+}
+header.pagina{
+    font-family: Papyrus;
+    text-align: center;
+    font-size: 40px;
+    height: 80px;
+    position: relative;
+}
+article.artigo1{
+    position: relative;
+    width:50%;
+    height: 400px;
+    float: left;
+}
+article.artigo2{
+    height: 400px;
+    width: 50%;
+    float: right;
+}
+.clearboth{
+    clear: both;
+}
+footer{
+    width: 100%;
+    height: 120px;
+}
+.jogapromeio{
+    margin-left: 00%;
+}
+article.artigo3{
+    font-family: Papyrus;
+    position: relative;
+    width:100%;
+    height: 610px;
+    float: none;
+}
+.container2{
+    background-color: rgba(255,255,255,0.8);
+    width: 800px;
+    height: 810px;
+    margin: 10px auto;
+    font-family: Papyrus;
+}
+.botaorandom{
+    position: relative;
+    display: inline-block;
+    font-family: 'Papyrus';
+    font-size: 32px !important;
+}
+.button{
+    position: relative;
+    display: inline-block;
+    font-family: 'Papyrus';
+    font-size: 18px !important;
+}
+
+.botaomenu{
+    position: relative;
+    display: inline-block;
+    top:60%;
+    left: 0%;
+    font-family: 'Papyrus';
+    font-size: 32px !important;
+}
+.detail{
+    width: 100%;
+    height: 120px;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: space-around;
+}
+.stat1{
+    background-color: cadetblue;
+    width: 20%;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 100px;
+    font-family: Papyrus;
+    text-align: center;
+}
+.stat2{
+    background-color:#63cc94;
+    width: 20%;
+    top: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 100px;
+    font-family: Papyrus;
+    text-align: center;
+}
+form{
+    font-family: Papyrus;
+}
+input{
+    font-family: Papyrus;
+}
+.block{
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    font-family: Papyrus;
+    text-align: center;
+    font-size: 50px;
+    width: 50%;
+    margin-left: 200px;
+    margin-top: 10px
+}
+
+.listaUl{
+    list-style: none;
+    list-style-position: inherit;
+    display: inline;
+    padding: 20px;
+}
+
+li.listDecoration{
+    list-style: none;
+}
+
+#feedback
+{
+    color: red; 
+    font-style: bold;
+}
