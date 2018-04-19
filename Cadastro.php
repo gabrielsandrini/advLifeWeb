@@ -14,7 +14,7 @@
                      if($(this).val() == "")
                     {
                         $(this).css({"border-color" : "red", "padding": "2px"});
-                        $('#feedback').html("Campo obrigatório");
+                        $('#feedback').php("Campo obrigatório");
 
                     }
                 });
@@ -25,14 +25,14 @@
                     {
                      $(this).css({"border" : "1px solid #F00", "padding": "2px"});
                      cont++;
-                     $('#feedback').html("Campos obrigatórios");
+                     $('#feedback').php("Campos obrigatórios");
                     }
                     });
                     if(cont == 0)
                     {
                         $('#cadastro').submit();
                         $('#feedback').hide(400);
-                        $(location).attr('href', 'Menu.html');
+                        $(location).attr('href', 'Menu.php');
                     }
                 });
             })
@@ -92,7 +92,7 @@
         </form>
             </article>
             <div class="clearboth"></div>
-            <footer><a href="index.html" class='botaorandom'>Início</a></footer>
+            <footer><a href="index.php" class="botaorandom">Início</a></footer>
         </div>
     </body>
 </html>

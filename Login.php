@@ -13,7 +13,7 @@
                     if($(this).val() == "")
                     {
                         $(this).css({"border" : "1px solid #F00", "padding": "2px"});
-                        $('#feedback').html("Campos obrigatórios");
+                        $('#feedback').php("Campos obrigatórios");
                     }
                 });
                 $("#login").click(function(){
@@ -23,18 +23,18 @@
                     {
                      $(this).css({"border" : "1px solid #F00", "padding": "2px"});
                      cont++;
-                     $('#feedback').html("Campos obrigatórios");
+                     $('#feedback').php("Campos obrigatórios");
                     }
                     });
                     if(cont == 0)
                     {
-                        window.location.href="Menu.html";
+                        window.location.href="Menu.php";
                     }
                 });
             });
 
             function redirecionaRec(){
-                    window.location.href="RecSen.html";
+                    window.location.href="RecSen.php";
                 }
 
         </script>
@@ -56,7 +56,7 @@
                     <a href="#" class="button" onclick="redirecionaRec()"> Esqueci minha senha </a>
                 </fieldset>
             </form>
-            <a href="index.html" class='botaorandom'>Início</a>
+            <a href="index.php" class='botaorandom' style="float: right; margin: 3px;">Início</a>
         </div>
     </body>
 </html>
