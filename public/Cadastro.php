@@ -44,7 +44,7 @@
             <article class="artigo1"><h3> Termos de uso e responsabilidade:</h3><br> Não foram escritos ainda
             então vamos apenas preencher o espaço para ficar bonito.</article>
             <article class="artigo2">
-               <form name="cadastro" id="form">
+               <form name="cadastro" id="form" method="post" action="..\Interface\RealizarCadastro.php">
             <fieldset>
             <p id='feedback'></p>
             Digite seu nome:

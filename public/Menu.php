@@ -1,3 +1,7 @@
+<?php
+    include("..\Interface\ProtegerPaginas.php");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +15,7 @@
             var escolha;
             escolha = window.confirm("Tem certeza que deseja sair ?");
             if (escolha) {
-                window.location.href = "index.php";
+                window.location.href = "../Interface/Logout.php";
             }
         }
     </script>
@@ -21,7 +25,7 @@
 <body>
     <div class="titulinho">
         Trilhas
-        <div>
+    <div>
             <a href="ProcTril.php" class="botaomenu">Buscar Trilha</a><br>
             <a href="RegTril.php" class="botaomenu">Gravar Trilha</a><br>
             <a href="TrilUsu.php" class="botaomenu">Trilhas que você gravou</a><br>

@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="style.css" rel="stylesheet" type="text/css"/>
+
         <script type="text/javascript" src="JQuery.js"></script> 
 
         <script type="text/javascript">
@@ -43,13 +44,13 @@
             
         <div class="container">
             <header class="pagina"> Adventurer's Life</header>
-            <form name='login' class="jogapromeio" id = "form" method="post" action="ValidarLogin.php">
+            <form name='login' class="jogapromeio" id = "form" method="post" action="..\Interface\ValidarLogin.php">
                 <fieldset>
                     Insira seu nome de usuário ou e-mail:
-                    <input type="text" name="nickmail"/>
+                    <input type="text" name="login"/>
                     <br><br>
                     Insira sua senha:
-                    <input type="password" name="senhalog"/>
+                    <input type="password" name="senha"/>
                     <br><br>
                     <p id = 'feedback' style="color: red; font-style: bold;"></p>
                     <a href="#" class="button" id="login"> Login </a>
@@ -58,5 +59,20 @@
             </form>
             <a href="index.php" class='botaorandom' style="float: right; margin: 3px;">Início</a>
         </div>
+        <?php
+            if(isset($_GET["erro"]) )
+            {
+                $erro = $_GET["erro"];
+                switch ($error) {
+                    case 0:
+                     echo "<script type=\"text/javascript\"> alert(\"Dados inválidos\"); </script>";                    
+                    break;
+                    
+                    case 1:
+                     echo "<script type=\"text/javascript\"> alert(\"Problemas com o login\"); </script>";                    
+                    break;
+                }
+            }
+        ?>
     </body>
 </html>
