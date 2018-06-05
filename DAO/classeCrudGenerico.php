@@ -1,5 +1,6 @@
 <?php
 
+include("classeConexao.php");
 class CrudGenerico {
    
     /*
@@ -27,6 +28,55 @@ class CrudGenerico {
         //echo $sql; exit;
         $this->conexao = new Conexao();
         $this->conexao->executaSQL($sql);
+    }
+    
+    /*
+     * Este método executa INSERT para quaisquer tabela
+     * Parametros:
+     * Deve se indicar qual o nome da table ($tabela)
+     * Deve se indicar os campos a serem preenchidos($campos)
+     * Deve ser fornecido um vetor com todos os dados da tabela ($dados)
+     */
+    public function fInsertPArcial($tabela, $campos, $dados){
+        $sql = "INSERT INTO ".$tabela." ( ";
+        //Insere o nome dos campos
+        for ($i = 0; $i < count($campos); $i++)
+        {
+           if($i == 0)
+           {
+              $sql.= $campos[$i].', ';
+           }
+           elseif($i == count($campos)-1)
+           {
+               $sql.= $campos[$i];
+           }
+           else
+           {
+               $sql.= $campos[$i].", ";
+           }
+        }
+        $sql.=  ")";
+        
+        $sql .= " VALUES( ";
+        for ($i = 0; $i < count($dados); $i++) //Insere o valor dos dados
+        {
+           if($i == 0)
+           {
+              $sql.= chr(39).$dados[$i].chr(39).', ';
+           }
+           elseif($i == count($dados)-1)
+           {
+               $sql.= chr(39).$dados[$i].chr(39);
+           }
+           else
+           {
+               $sql.= chr(39).$dados[$i].chr(39).", ";
+           }
+        }
+        $sql.=");";
+//        echo $sql; exit;
+        $this->conexao = new Conexao();
+        return $this->conexao->executaSQL($sql);
     }
 
      /*
