@@ -18,25 +18,44 @@
                     }
                 });
                 $("#login").click(function(){
-                    cont = 0;
+                    
+                    var preenchido = true;
                     $("#form input").each(function(){
                     if($(this).val() == "" || $(this).val() == " ")
                     {
                      $(this).css({"border" : "1px solid #F00", "padding": "2px"});
-                     cont++;
+                     preenchido = false;
+                     $("#feedback").show();
+                     $("#feedback").html("Preencha todos os campos");
                     }
                     });
-                    if(cont==0)
+                    if(preenchido)
                     {
-                        submitLogin();
+                        $("#feedback").hide();
+                        $("#form").submit();
                     }
                 });
+                
+            <?php
+            if(isset($_GET["erro"]) )
+            {
+                $erro = $_GET["erro"];
+                switch ($erro)
+                {
+                    case 'noLogin':
+                        echo '$("#feedback").html("Realize o login para continuar");';
+                        break;
+                    
+                    case 'wrongData':
+                        echo '$("#feedback").html("Login ou senha incorretos");';
+                        break;
+                }
+                echo '$("#feedback").show();';
+            }
+            ?>
             });
             
-            function submitLogin()
-            {
-                document.forms[0].submit();
-            }
+  
         </script>
        
     </head>
@@ -46,33 +65,18 @@
             <header class="pagina"> Adventurer's Life</header>
             <form name='login' class="jogapromeio" id = "form" method="post" action="..\Interface\ValidarLogin.php">
                 <fieldset>
-                    Insira seu nome de usuário ou e-mail:
+                    <p id ='feedback'> </p>
+                    Insira seu Nickname ou seu e-mail:
                     <input type="text" name="login"/>
                     <br><br>
                     Insira sua senha:
                     <input type="password" name="senha"/>
                     <br><br>
-                    <p id = 'feedback' style="color: red; font-style: bold;"></p>
                     <a href="#" class="button" id="login"> Login </a>
                     <a href="RecSen.php" class="button"> Esqueci minha senha </a>
                 </fieldset>
             </form>
             <a href="index.php" class='botaorandom' style="float: right; margin: 3px;">Início</a>
         </div>
-        <?php
-            if(isset($_GET["erro"]) )
-            {
-                $erro = $_GET["erro"];
-                switch ($error) {
-                    case 0:
-                     echo "<script type=\"text/javascript\"> alert(\"Dados inválidos\"); </script>";                    
-                    break;
-                    
-                    case 1:
-                     echo "<script type=\"text/javascript\"> alert(\"Problemas com o login\"); </script>";                    
-                    break;
-                }
-            }
-        ?>
     </body>
 </html>

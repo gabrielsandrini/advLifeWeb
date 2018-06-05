@@ -69,7 +69,7 @@
             <article class="artigo2">
                <form name="cadastro" id="form" method="post" action="..\Interface\RealizarCadastro.php">
             <fieldset>
-                <p id='feedback' style="border-color: red; padding: 2px;"></p>
+                <p id='feedback'></p>
             Digite seu nome:
             <br>
             <input type="text" name="nome"/>

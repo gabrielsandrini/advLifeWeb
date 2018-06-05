@@ -17,6 +17,11 @@ body {
     color: #ffffff;
 }
 
+#feedback{
+     color: red;
+     font-family: arial-bold;
+}
+
 #tituloAvaliacao {
     font-size: 64px;
     font-family: 'Papyrus';
