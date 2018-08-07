@@ -267,3 +267,35 @@ li.listDecoration {
     color: red;
     font-style: bold;
 }
+
+@media screen and (max-width: 990px){
+	.container{
+		max-width: 700px;
+		height: 1200px;
+	}
+	article.artigo2{
+		float: none;
+	}
+	.titulinho{
+		text-align: center;
+	}
+	.botaotitul{
+		display: grid;
+	}
+	.container2{
+		max-width: 700px;
+	}
+	.botaomenu{
+		display: grid;
+		margin: 2px;
+	}
+	.botaorandom{
+		font-size: 28px;
+	}
+	.bordaAvaliacao{
+		max-width: 700px;
+	}
+	.fotoUsuario{
+		height: 95px;
+	}
+}
