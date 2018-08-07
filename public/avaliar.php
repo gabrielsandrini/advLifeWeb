@@ -26,8 +26,9 @@
 
         <div>
             <h4 style="text-align: center">"Nome da trilha"</h4>
-            <form>
+            <form method="POST" action="../interface/realizarAvaliacao.php">
                 <fieldset>
+                    ID da trilha: <input type="number" name="idTrilha"> <br> <br>
                     Dificuldade:
                     <ul>
                         <li class="listaUl">
@@ -113,14 +114,9 @@
                             <label for="r5">5</label>
                         </li>
                     </ul>
-
-                    <br> <br> <br> Comentário: <br>
-                    <textarea name="comentario" rows="4" cols="70">
-            </textarea>
-                    <br>
                     <br>
                     <div style="margin:0px 45%">
-                        <input onclick="EnviadaComSucesso(); redirecionar();" type="submit" value="Enviar">
+                        <input type="submit" value="Enviar">
                     </div>
                 </fieldset>
             </form>

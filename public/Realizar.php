@@ -15,7 +15,7 @@ and open the template in the editor.
 
 <body>
     <div class="container">
-        <img src="Imagens e coisas de mídia/Trilha.jpeg" alt="Mapa" style="width: 80%; height: 80%; margin-left: 80px" /><br> Mapa da trilha com navegação completa em GPS <br>
+        <img src="../Imagens e coisas de mídia/Trilha.jpeg" alt="Mapa" style="width: 80%; height: 80%; margin-left: 80px" /><br> Mapa da trilha com navegação completa em GPS <br>
         <a href="Menu.php" class="botaorandom">Retornar</a>
     </div>
 </body>

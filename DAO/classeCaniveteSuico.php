@@ -113,7 +113,6 @@ class Canivetesuico {
         $sql .= 'SELECT MAX('.$colunas[0].') FROM '.$nometabela.' ;';
         $resultado =  $this->conexao->executaSQL($sql);
 
-        include("tratamento_erro_sql.php");
         $valor = 0;
         while ($linha = mysqli_fetch_array($resultado)){
             $valor = $linha[0];

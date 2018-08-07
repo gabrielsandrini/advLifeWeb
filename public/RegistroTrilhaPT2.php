@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="container2" style="height: 850px;">
+    <div class="container" style="height: 850px;">
         <header class="pagina">
             <h1 style="font-size: 64px">Trilhas</h1>
             <script type="text/javascript" src="JQuery.js"></script>
@@ -54,7 +54,7 @@
 
             <script type="text/javascript">
                 function EnviadaComSucesso() {
-                    alert("avaliacao Enviada com sucesso");
+                    alert("Trilha registrada com sucesso");
                 }
             </script>
 
@@ -62,11 +62,11 @@
 
         <div>
 
-            <form id="form">
+            <form id="form" method="POST" action="..\Interface\CadastrarTrilha.php">
                 <fieldset>
                     <br>
                     <p id="feedback"></p>
-                    Nome da Trilha: <input type="text" name="Nome da trilha" value="">
+                    Nome da Trilha: <input type="text" name="apelido">
                     <br> <br> Dificuldade:
                     <ul>
                         <li class="listaUl">
@@ -96,61 +96,25 @@
 
                     </ul>
                     <br> Obstáculos: <br>
-                    <textarea name="Obstáculos" rows="4" cols="70">
+                    <textarea name="Obstaculos" rows="4" cols="70">
                </textarea>
-
-                    <br> <br> Tipo de locomoção:
-                    <ul class="listDecoration">
-                        <li>
-                            <input type="checkbox" id="carro" name="carro">
-                            <label for="carro">Carro</label>
-                        </li>
-
-                        <li>
-                            <input type="checkbox" id="carro4x4" name="carro4x4">
-                            <label for="carro4x4"> Carro 4x4 </label>
-                        </li>
-
-                        <li>
-                            <input type="checkbox" id="carro especial" name="carro especial">
-                            <label for="carro especial">Carro especial</label>
-                        </li>
-
-                        <li>
-                            <input type="checkbox" id="moto" name="moto">
-                            <label for="moto">Moto</label>
-                        </li>
-
-                        <li>
-                            <input type="checkbox" id="moto de trilha" name="moto de trilha">
-                            <label for="moto de trilha">Moto de trilha</label>
-                        </li>
-
-                        <li>
-                            <input type="checkbox" name="a pe" id="a pé">
-                            <label for="a pé">a pé</label>
-                        </li>
-
-                        <li>
-                            <input type="checkbox" name="bicicleta" id="bicicleta">
-                            <label for="bicicleta">Bicicleta</label>
-                        </li>
-
-                    </ul>
-
-                    <br> Tipo de mata:
-                    <select>
-                    <option value=" ">-----</option>
-                    <option value="Taiga">Taiga</option>
-                    <option value="Tundra">Tundra</option>
-                    <option value="equatorial">Equatorial</option>
-                    <option value="Arida">Árida</option>
-                    <option value="Outra">Outra</option>
-                </select>
+                     <br>
+                    <br> Distancia:
+                    <input name="distancia" type="number" >
+                    <br>                    
+                    <br> Tipo de mata: 
+                    <select name="idMata">
+                    <option value="1">Amazonica</option>
+                    <option value="2">Caatinga</option>
+                    <option value="3">Cerrado</option>
+                    <option value="4">Mata Atlantica</option>
+                    <option value="5">Pampa</option>
+                    <option value="6">Pantanal</option>
+                </select> 
 
                     <br> <br> <br> <br>
                     <div style="margin:0px 45%">
-                        <a id="button" class="botaoTitul" style="font-size: 20px; background-color: grey;">Enviar</a>
+                        <input type="submit" value="Enviar" style="font-size: 20px; background-color: grey;">
                     </div>
                 </fieldset>
             </form>

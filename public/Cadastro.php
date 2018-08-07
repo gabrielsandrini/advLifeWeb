@@ -58,7 +58,27 @@
                         $('#form').submit();
                     }
                 });
+                
+                 <?php
+            if(isset($_GET["erro"]) )
+            {
+                $erro = $_GET["erro"];
+                switch ($erro)
+                {
+                    case 'erroCadastro':
+                        echo '$("#feedback").html("Esse nome de usuario já existe");';
+                        break;
+                    
+                    case 'camposVazios':
+                        echo '$("#feedback").html("Preencha todos os campos");';
+                        break;
+                }
+                echo '$("#feedback").show();';
+            }
+            ?>
+                    
             })
+
         </script>
     </head>
     <body>
@@ -74,21 +94,17 @@
             <br>
             <input type="text" name="nome"/>
             <br><br>
-            Insira um nome de usuário para login:
+            Insira um nome de usuário(Nickname):
             <br>
             <input type="text" name="nick"/>
             <br><br>
-            Insira sua data de nascimento:
-            <br>
-            <input type="text" name="nasc"/>
-            <br>
             Insira sua senha:
             <br>
             <input type="password" name="senha" id="senha"/>
             <br><br>
             Confirme sua senha:
             <br>
-            <input type="password" name="confsenha" id="confsenha" />
+            <input type="password" id="confsenha" />
             <br><br>
             Insira seu e-mail:
             <br>

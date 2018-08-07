@@ -185,6 +185,10 @@ class CrudGenerico {
     public function fQuery($q){
         $this->conexao = new Conexao();
         $lista = $this->conexao->executaSQL($q);
+        if(empty($lista))
+        {
+            echo mysqli_error($this->conexao);
+        }
         return $lista;
     }
 }

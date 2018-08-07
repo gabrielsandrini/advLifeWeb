@@ -5,8 +5,13 @@
     $login = isset( $_POST['login'] ) ? $_POST['login'] : null;
     $senha = isset( $_POST['senha'] ) ? $_POST['senha'] : null;
     
-     $resultado = ($login != null && $login != "" && $senha != null && $senha != "")?
-             UsuarioDao::validarLogin($login, $senha) : false;
+     if ($login != null && $login != "" && $senha != null && $senha != "") {
+            $resultado = UsuarioDao::validarLogin($login, $senha);
+     }
+     else
+     {
+         echo "Campos vazios";
+     }
      
     if($resultado)
     {
