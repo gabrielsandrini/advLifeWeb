@@ -1,3 +1,8 @@
+<?php
+    
+    var_dump($_GET);
+?>
+<!--
 <!DOCTYPE html>
 <html>
 
@@ -10,8 +15,6 @@
 
 <body>
     <div class="container">
-        <header class="pagina">Trilhas Que Você Gravou</header>
-
         <a href="SelecTril.php">
             <div class="detail">
                 <div class="stat1"> Mapa da Trilha e nome </div>
@@ -23,6 +26,9 @@
 
         <a href="Menu.php" class="botaorandom">Retornar</a>
     </div>
+
 </body>
 
 </html>
+
+-->

@@ -73,7 +73,7 @@
     <div class="container">
         <header class="pagina"> Buscar Trilhas</header>
         <fieldset>
-            <form id="form" action="paginaPesquisa.php">
+            <form id="form" action="resultadoPesquisa.php" method="get">
                 <label for="apelido">Insira o nome da trilha:</label>
                 <input type="search" id="apelido" name="apelido" placeholder="Ex: Bosque das Araucárias" size="26"> <br>
 
