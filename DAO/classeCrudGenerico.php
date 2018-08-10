@@ -182,13 +182,13 @@ class CrudGenerico {
      /*
      * Este método executa uma query qualquer
      */    
-    public function fQuery($q){
+    public function fQuery($sql){
         $this->conexao = new Conexao();
-        $lista = $this->conexao->executaSQL($q);
-        if(empty($lista))
+        $resultado = $this->conexao->executaSQL($sql);
+        if(empty($resultado))
         {
             echo mysqli_error($this->conexao);
         }
-        return $lista;
+        return $resultado;
     }
 }
