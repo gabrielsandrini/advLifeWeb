@@ -1,6 +1,10 @@
 <?php
-    
-    var_dump($_GET);
+     include_once'../DAO/trilhaDao.php';
+     $array = $_GET;
+     $trilhaDao = new trilhaDao();
+     $trilhas = $trilhaDao->searchTracks($array);
+     
+     var_dump($trilhas);
 ?>
 <!--
 <!DOCTYPE html>

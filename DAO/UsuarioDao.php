@@ -17,7 +17,7 @@ class UsuarioDao {
     public static function validarLogin($login, $senha)
     {  
         $objCrud = new CrudGenerico();
-        //$senha = md5($senha);
+        $senha = md5($senha);
         $sql = "select * from tbusuario where nicknameUsuario = '$login' and senha = '$senha' ;";
         $consulta = $objCrud->fQuery($sql);
         $resultado = mysqli_fetch_assoc($consulta);
