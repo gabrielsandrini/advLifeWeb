@@ -5,6 +5,7 @@ class trilhaDao
 
     private function makeSqlForSearch($array)
     {
+        //$id = isset($array['id']) ? $array['id'] : null;
         $apelido = isset($array['apelido']) ? $array['apelido'] : null;
         $distMax = isset($array['distMax']) ? $array['distMax'] : null;
         $distMin = isset($array['distMin']) ? $array['distMin'] : null;
@@ -34,7 +35,7 @@ class trilhaDao
     {
         $sql = $this->makeSqlForSearch($array);
         $crudGenerico = new CrudGenerico();
-        $resultado = mysqli_fetch_all($crudGenerico->fQuery($sql));
+        $resultado = $crudGenerico->fQuery($sql);
         return $resultado;
     }
 }

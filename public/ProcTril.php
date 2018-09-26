@@ -94,6 +94,7 @@
                     <li><button id="botaoBuscaAvancada" type="button" class="botaoBusca" onclick="menuBuscaAvancada()">
                     Busca avançada </button></li>
                 </ul>
+                <input type="hidden" name="title" value="Busca de Trilhas">
             </form>
             <p id="feedback"></p>
         </fieldset>

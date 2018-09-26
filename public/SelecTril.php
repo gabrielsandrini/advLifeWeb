@@ -1,9 +1,18 @@
+<?php 
+include_once'../DAO/trilhaDao.php';
+$id = $_GET['id'];
+$array = [ 'id' => $id];
+$trilhaDao = new trilhaDao();
+$resultado = $trilhaDao->searchTracks($array);
+$trilha = mysqli_fetch_assoc($resultado);
+$title = isset($trilha['apelido']) ? $trilha['apelido'] : "Adv Life";
+?>
 <!DOCTYPE html>
 
 <html>
 
 <head>
-    <title>Trilha</title>
+    <title> <?php echo $title;?> </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css" />
@@ -11,7 +20,7 @@
 
 <body>
     <div class="container2">
-        <header class="pagina"> Nome da Trilha</header>
+        <header class="pagina"> <?php echo $trilha['apelido'];?> </header>
         <img src="../Imagens e coisas de mídia/Trilha.jpeg" alt="Trilha" style="width: 70%; height: 70%; margin-left: 120px">
         <br> Distância: Xkm<br> 
         Tempo de duração: Xh Xmin<br> 
