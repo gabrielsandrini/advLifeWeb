@@ -5,7 +5,7 @@
        <div>
           <?php
           if($_SESSION["nicknameUsuario"] == $trilha['nicknameUsuario']){
-             echo "<a href='recebeEditarTrilha.php'>";
+             echo "<a href='recebeEditarTrilha.php?id=".$trilha['idTrilha']."'>";
              echo "<img src=\"../Imagens e coisas de mídia/editar.png\" alt=\"imagem da trilha\" style=\"float:right;\"/>"; 
              echo "</a>";
           }
