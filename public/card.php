@@ -3,6 +3,13 @@
     <img class="cardImage" src="../Imagens e coisas de mídia/Trilha.jpeg" alt="imagem da trilha">
     </div>
        <div>
+          <?php
+          if($_SESSION["nicknameUsuario"] == $trilha['nicknameUsuario']){
+             echo "<a href='recebeEditarTrilha.php'>";
+             echo "<img src=\"../Imagens e coisas de mídia/editar.png\" alt=\"imagem da trilha\" style=\"float:right;\"/>"; 
+             echo "</a>";
+          }
+           ?>
          <h1 class="cardTitle"><?php echo $trilha['apelido']; ?></h1>
          <br><br>
          <h3 class="cardAtribute">Distância: <?php echo $trilha['distancia']; ?></h3>

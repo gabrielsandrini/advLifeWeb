@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once'../DAO/trilhaDao.php';
 $array = $_GET;
 $trilhaDao = new trilhaDao();
@@ -27,6 +28,11 @@ for ($i = mysqli_num_rows($resultado); $i > 0; $i--)
             {
                 var id;
                 window.location.href="SelecTril.php?id="+id;
+            }
+            
+            function redirecionaEditar(id)
+            {
+                
             }
         </script>
     </head>
