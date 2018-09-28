@@ -7,6 +7,4 @@ $sucesso = $trilhaDao->deleteTracks($idTrilha);
 if($sucesso)
 {
     echo "Trilha Deletada ...";
-    sleep(5);
-    header("Location: ../public/Menu.php");
 }

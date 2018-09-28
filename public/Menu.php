@@ -1,5 +1,6 @@
 <?php
     include("..\Interface\ProtegerPaginas.php");
+    
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@
     <div>
             <a href="ProcTril.php" class="botaomenu">Buscar Trilha</a><br>
             <a href="RegTril.php" class="botaomenu">Gravar Trilha</a><br>
-            <a href="TrilUsu.php" class="botaomenu">Trilhas que você gravou</a><br>
+            <a href="ResultadoPesquisa.php?nicknameUsuario=<?php echo $_SESSION["nicknameUsuario"] ?>" class="botaomenu">Trilhas que você gravou</a><br>
             <a href="TrilReal.php" class="botaomenu">Trilhas Utilizadas</a><br>
             <a onclick="redirecionaIndex()" href="#" class="botaomenu">Logout</a>
         </div>
