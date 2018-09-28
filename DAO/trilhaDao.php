@@ -14,7 +14,7 @@ class trilhaDao
         
         if ($idTrilha)
         {
-            $sql .= " and idTrilha = $id";
+            $sql .= " and idTrilha = $idTrilha";
         }
         if ($apelido)
         {

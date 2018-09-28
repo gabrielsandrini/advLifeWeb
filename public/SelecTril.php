@@ -1,6 +1,6 @@
 <?php 
 include_once'../DAO/trilhaDao.php';
-$id = $_GET['idTrilha'];
+$idTrilha = $_GET['idTrilha'];
 $array = [ 'idTrilha' => $idTrilha];
 $trilhaDao = new trilhaDao();
 $resultado = $trilhaDao->searchTracks($array);
