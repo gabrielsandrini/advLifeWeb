@@ -65,4 +65,15 @@ class trilhaDao
         }
         return false;
     }
+    
+    public function searchHistorical($nicknameUsuario)
+    {
+        $crudGenerico = new CrudGenerico();
+        $sql = "SELECT tbtrilha.*, tbusuariorealizatrilha.dataRealizacao";
+        $sql.= " FROM tbtrilha, tbusuariorealizatrilha ";
+        $sql.= " WHERE tbusuariorealizatrilha.nicknameUsuario = '$nicknameUsuario' ";
+        $sql.= " AND tbusuariorealizatrilha.idTrilha = tbtrilha.idTrilha";
+        $resultado = $crudGenerico->fQuery($sql);
+        return $resultado;
+    }
 }

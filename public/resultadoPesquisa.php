@@ -3,7 +3,8 @@ session_start();
 include_once'../DAO/trilhaDao.php';
 $array = $_GET;
 $trilhaDao = new trilhaDao();
-$resultado = $trilhaDao->searchTracks($array);
+$resultado = !isset($_GET['historical']) ? $trilhaDao->searchTracks($array) : 
+    $trilhaDao->searchHistorical($_SESSION['nicknameUsuario']);
 $trilhas = [];
 $title = isset($_GET['title']) ? $_GET['title'] : "Adv Life";
 
