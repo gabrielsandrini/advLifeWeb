@@ -47,13 +47,13 @@ class trilhaDao
         $sql = "select idAvaliacao from tbavaliacoesrealizadas where idTrilha = $idTrilha";
         $crudGenerico = new CrudGenerico();
         $resultado = $crudGenerico->fQuery($sql);
-        if($resultado){
+        if(mysqli_num_rows($resultado) != 0){
             $resultado = mysqli_fetch_assoc($resultado);
             $idAvaliacao = $resultado['idAvaliacao'];
             
-            $sql = "delete from tbavaliacaovalores where idAvaliacao = $idAvaliacao";
+            $sql = "delete from tbavaliacaovalores where idAvaliacao = $idAvaliacao ";
             $crudGenerico->fQuery($sql);
-            
+            die();
             $sql = "delete from tbavaliacoesrealizadas where idAvaliacao = $idAvaliacao";
             $crudGenerico->fQuery($sql);
         }

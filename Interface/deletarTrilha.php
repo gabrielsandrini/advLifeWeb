@@ -1,5 +1,12 @@
 <?php
 include_once '../DAO/trilhaDao.php';
-$id = $_GET['id'];
+$idTrilha = $_GET['id'];
 $trilhaDao = new trilhaDao();
-$trilhaDao->deleteTracks($idTrilha);
+$sucesso = $trilhaDao->deleteTracks($idTrilha);
+
+if($sucesso)
+{
+    echo "Trilha Deletada ...";
+    sleep(5);
+    header("Location: ../public/Menu.php");
+}

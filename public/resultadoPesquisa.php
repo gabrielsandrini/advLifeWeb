@@ -24,16 +24,22 @@ for ($i = mysqli_num_rows($resultado); $i > 0; $i--)
         <link href="style.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="card.css">
         <script type="text/javascript">
+            var foiClicadoEmDeletar = false;
             function redirecionaCard(id)
             {
-                window.location.href="SelecTril.php?id="+id;
+                if(foiClicadoEmDeletar){
+                    foiClicadoEmDeletar = false;
+                } else{
+                    window.location.href="SelecTril.php?id="+id;                    
+                }
             }
             
             function deletarTrilha(id)
             {
+                foiClicadoEmDeletar = true;
                 var confirmacao = confirm("Voce deseja realmente deletar esta trilha ?");
                 if(confirmacao){
-                    window.location.href="deletarTrilha?id="+id;
+                    window.location.href="../Interface/deletarTrilha.php?id="+id;
                 }else{
                     alert("Ufa!!! Foi por pouco");
                 }
