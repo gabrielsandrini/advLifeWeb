@@ -1,3 +1,11 @@
+<?php 
+ $idTrilha = isset($_GET['idTrilha']) ? $_GET['idTrilha'] : die("Erro na obtenção do id"); 
+ include_once'../DAO/trilhaDao.php';
+$array = [ 'id' => $idTrilha];
+$trilhaDao = new trilhaDao();
+$resultado = $trilhaDao->searchTracks($array);
+$trilha = mysqli_fetch_assoc($resultado);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -25,10 +33,10 @@
         </header>
 
         <div>
-            <h4 style="text-align: center">"Nome da trilha"</h4>
+            <h4 style="text-align: center"><?php echo $trilha['apelido']; ?></h4>
             <form method="POST" action="../interface/realizarAvaliacao.php">
                 <fieldset>
-                    ID da trilha: <input type="number" name="idTrilha"> <br> <br>
+                    <input type="hidden" name="idTrilha" value="<?php echo $idTrilha; ?>"> <br> <br>
                     Dificuldade:
                     <ul>
                         <li class="listaUl">

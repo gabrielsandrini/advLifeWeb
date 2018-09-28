@@ -1,7 +1,7 @@
 <?php 
 include_once'../DAO/trilhaDao.php';
-$id = $_GET['id'];
-$array = [ 'id' => $id];
+$id = $_GET['idTrilha'];
+$array = [ 'idTrilha' => $idTrilha];
 $trilhaDao = new trilhaDao();
 $resultado = $trilhaDao->searchTracks($array);
 $trilha = mysqli_fetch_assoc($resultado);
@@ -36,7 +36,8 @@ $title = isset($trilha['apelido']) ? $trilha['apelido'] : "Adv Life";
             <li> Data de gravação: <?php echo $trilha['dataGravacao']; ?> </li>
         </ul>
         <a href="Menu.php" class="botaorandom">Retornar</a>
-        <a href="avaliar.php" class="botaorandom">Avaliar</a>
+        <a href="<?php echo "avaliar.php?idTrilha=".$trilha['idTrilha'] ;?>" 
+           class="botaorandom">Avaliar</a>
         <a href="mostraAvaliacao.php" class="botaorandom">Avaliações</a>
         <a href="Realizar.php" class="botaorandom">Realizar Trilha!</a>
     </div>

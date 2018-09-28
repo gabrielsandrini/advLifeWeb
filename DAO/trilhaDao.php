@@ -5,14 +5,14 @@ class trilhaDao
 
     private function makeSqlForSearch($array)
     {
-        $id = isset($array['id']) ? $array['id'] : null;
+        $idTrilha = isset($array['idTrilha']) ? $array['idTrilha'] : null;
         $apelido = isset($array['apelido']) ? $array['apelido'] : null;
         $distMax = isset($array['distMax']) ? $array['distMax'] : null;
         $distMin = isset($array['distMin']) ? $array['distMin'] : null;
         $nickname = isset($array['nickname']) ? $array['nickname'] : null;
         $sql = "select * from tbtrilha where 1 = 1";
         
-        if ($id)
+        if ($idTrilha)
         {
             $sql .= " and idTrilha = $id";
         }

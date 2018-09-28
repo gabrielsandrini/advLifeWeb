@@ -30,7 +30,7 @@ for ($i = mysqli_num_rows($resultado); $i > 0; $i--)
                 if(foiClicadoEmDeletar){
                     foiClicadoEmDeletar = false;
                 } else{
-                    window.location.href="SelecTril.php?id="+id;                    
+                    window.location.href="SelecTril.php?idTrilha="+id;                    
                 }
             }
             
@@ -39,7 +39,7 @@ for ($i = mysqli_num_rows($resultado); $i > 0; $i--)
                 foiClicadoEmDeletar = true;
                 var confirmacao = confirm("Voce deseja realmente deletar esta trilha ?");
                 if(confirmacao){
-                    window.location.href="../Interface/deletarTrilha.php?id="+id;
+                    window.location.href="../Interface/deletarTrilha.php?idTrilha="+id;
                 }else{
                     alert("Ufa!!! Foi por pouco");
                 }

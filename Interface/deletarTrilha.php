@@ -1,6 +1,6 @@
 <?php
 include_once '../DAO/trilhaDao.php';
-$idTrilha = $_GET['id'];
+$idTrilha = $_GET['idTrilha'];
 $trilhaDao = new trilhaDao();
 $sucesso = $trilhaDao->deleteTracks($idTrilha);
 
