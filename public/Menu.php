@@ -30,7 +30,7 @@
             <a href="ProcTril.php" class="botaomenu">Buscar Trilha</a><br>
             <a href="RegTril.php" class="botaomenu">Gravar Trilha</a><br>
             <a href="ResultadoPesquisa.php?nickname=<?php echo $_SESSION["nicknameUsuario"] ?>" class="botaomenu">Trilhas que você gravou</a><br>
-            <a href="TrilReal.php" class="botaomenu">Trilhas Utilizadas</a><br>
+            <a href="TrilReal.php" class="botaomenu">Histórico</a><br>
             <a onclick="redirecionaIndex()" href="#" class="botaomenu">Logout</a>
         </div>
     </div>
