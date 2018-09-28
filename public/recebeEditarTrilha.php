@@ -10,7 +10,7 @@
 <html>
     
 <head>
-    <title>Registrar Trilhas</title>
+    <title>Editar Trilhas</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css" />
@@ -70,14 +70,16 @@
 
         <div>
 
-            <form id="form" method="POST" action="..\Interface\CadastrarTrilha.php">
+            <form id="form" method="POST" action="..\Interface\editarTrilha.php">
                 <fieldset>
                     <br>
                     <p id="feedback"></p>
                     Nome da Trilha: <input type="text" name="apelido" value="<?php echo $trilha['apelido']; ?>">
                     <br> Obstáculos: <br>
-                    <textarea name="Obstaculos" rows="4" cols="70" value="<?php echo $trilha['obstaculos']; ?>">
+                    <textarea name="Obstaculos" value="<?php echo $trilha['obstaculos']; ?>" rows="4" cols="70">
                </textarea>
+                    <input name="nicknameUsuario" type="hidden" value="<?php echo $trilha['nicknameUsuario']; ?>">
+                    <input name="idTrilha" type="hidden" value="<?php echo $id ?>">
                      <br>
                <div style="margin:0px 45%">
                         <input type="submit" value="Enviar" style="font-size: 20px; background-color: grey;">

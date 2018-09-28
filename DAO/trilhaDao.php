@@ -42,4 +42,27 @@ class trilhaDao
         $resultado = $crudGenerico->fQuery($sql);
         return $resultado;
     }
+    public function deleteTracks($idTrilha)
+    {
+        $sql = "select idAvaliacao from tbavaliacoesrealizadas where idTrilha = $idTrilha";
+        $crudGenerico = new CrudGenerico();
+        $resultado = $crudGenerico->fQuery($sql);
+        if($resultado){
+            $resultado = mysqli_fetch_assoc($resultado);
+            $idAvaliacao = $resultado['idAvaliacao'];
+            
+            $sql = "delete from tbavaliacaovalores where idAvaliacao = $idAvaliacao";
+            $crudGenerico->fQuery($sql);
+            
+            $sql = "delete from tbavaliacoesrealizadas where idAvaliacao = $idAvaliacao";
+            $crudGenerico->fQuery($sql);
+        }
+        $sql = "delete from tbtrilha where idTrilha = $idTrilha";
+        $resultado = $crudGenerico->fQuery($sql);
+        
+        if($resultado){
+            return TRUE;
+        }
+        return false;
+    }
 }

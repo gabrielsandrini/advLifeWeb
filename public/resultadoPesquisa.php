@@ -26,13 +26,17 @@ for ($i = mysqli_num_rows($resultado); $i > 0; $i--)
         <script type="text/javascript">
             function redirecionaCard(id)
             {
-                var id;
                 window.location.href="SelecTril.php?id="+id;
             }
             
-            function redirecionaEditar(id)
+            function deletarTrilha(id)
             {
-                
+                var confirmacao = confirm("Voce deseja realmente deletar esta trilha ?");
+                if(confirmacao){
+                    window.location.href="deletarTrilha?id="+id;
+                }else{
+                    alert("Ufa!!! Foi por pouco");
+                }
             }
         </script>
     </head>

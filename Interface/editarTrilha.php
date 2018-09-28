@@ -4,22 +4,24 @@ include ("../DAO/classeCrudGenerico.php");
 // $ = isset($_POST[""]) ? $_POST[""] : null;
 
 $apelido = isset($_POST["apelido"]) ? $_POST["apelido"] : null;
-$dificuldade = isset($_POST["Dificuldade"]) ? $_POST["Dificuldade"] : null;
 $obstaculos = isset($_POST["Obstaculos"]) ? $_POST["Obstaculos"] : null;
-$distancia = isset($_POST["distancia"]) ? $_POST["distancia"] : null;
-$idMata = isset($_POST["idMata"]) ? $_POST["idMata"] : null;
+$nicknameTrilha = isset($_POST["nicknameUsuario"]) ? $_POST["nicknameUsuario"] : null;
+$idTrilha = isset($_POST["idTrilha"]) ? $_POST["idTrilha"] : null;
 
 session_start();
 $nicknameUsuario = $_SESSION["nicknameUsuario"];
 
-$data = date('y/m/d');
+if($nicknameTrilha == $nicknameUsuario){
+    $sql = "update tbTrilha set apelido= '$apelido', obstaculos= '$obstaculos' where idTrilha = $idTrilha";
 
-$sql = "insert into tbTrilha(apelido, obstaculos, distancia, idMata, dataGravacao, nicknameUsuario)";
-$sql.= " values('$apelido','$obstaculos','$distancia','$idMata','$data','$nicknameUsuario');";
+    $objCrud = new CrudGenerico;
+    $resultado = $objCrud->fQuery($sql);
 
-$objCrud = new CrudGenerico;
-$resultado = $objCrud->fQuery($sql);
-
-if($resultado){
-     header("Location: ../public/Menu.php");
+    if($resultado){
+        echo "Trilha atualizada com sucesso";
+        header("Location: ../public/Menu.php");
+    }
+}else{   
+    echo "Erro: Me parece que não foi você que gravou essa trilha";
+    echo "<a href='../public/Menu.php> Voltar ao menu </a>";
 }

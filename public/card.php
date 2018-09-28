@@ -5,8 +5,12 @@
        <div>
           <?php
           if($_SESSION["nicknameUsuario"] == $trilha['nicknameUsuario']){
+             echo "<a href='#' onclick='deletarTrilha(".$trilha['idTrilha'].")'>";
+             echo "<img src=\"../Imagens e coisas de mídia/delete.png\" alt=\"deletar\" style=\"float:right;\"/>"; 
+             echo "</a>";
+             
              echo "<a href='recebeEditarTrilha.php?id=".$trilha['idTrilha']."'>";
-             echo "<img src=\"../Imagens e coisas de mídia/editar.png\" alt=\"imagem da trilha\" style=\"float:right;\"/>"; 
+             echo "<img src=\"../Imagens e coisas de mídia/editar.png\" alt=\"editar\" style=\"float:right;\"/>"; 
              echo "</a>";
           }
            ?>
