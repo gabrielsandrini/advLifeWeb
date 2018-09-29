@@ -1,3 +1,6 @@
+<?php
+include_once("../Interface/ProtegerPaginas.php");
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.

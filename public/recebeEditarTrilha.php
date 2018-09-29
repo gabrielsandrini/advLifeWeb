@@ -1,5 +1,6 @@
 <?php
     include_once'../DAO/trilhaDao.php';
+    include_once("../Interface/ProtegerPaginas.php");
     $id = $_GET['id'];
     $array = [ 'id' => $id];
     $trilhaDao = new trilhaDao();

@@ -1,4 +1,5 @@
 <?php 
+ include_once("../Interface/ProtegerPaginas.php");
  include_once'../DAO/trilhaDao.php';
  include_once'../DAO/AvaliacaoDao.php';
  

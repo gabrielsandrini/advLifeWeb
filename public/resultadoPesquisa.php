@@ -1,5 +1,5 @@
 <?php
-session_start();
+include_once("../Interface/ProtegerPaginas.php");
 include_once'../DAO/trilhaDao.php';
 $array = $_GET;
 $trilhaDao = new trilhaDao();

@@ -1,6 +1,5 @@
 <?php
-    include("..\Interface\ProtegerPaginas.php");
-    
+include_once("../Interface/ProtegerPaginas.php");
 ?>
 
 <!DOCTYPE html>
