@@ -69,4 +69,22 @@ class AvaliacaoDao
         $resultado = $crudGenerico->fQuery($sql);
         return $resultado;
     }
+    
+    public function consultarNicknameDoAvaliador($idAvaliacao)
+    {
+        $sql = "select avaliacoes.nicknameUsuario"; 
+        $sql.=" from tbavaliacoesrealizadas as avaliacoes";
+        $sql.=" where avaliacoes.idAvaliacao = '$idAvaliacao'";
+        
+        $crudGenerico = new CrudGenerico();
+        $resultado = $crudGenerico->fQuery($sql);
+        
+        $resultado = mysqli_fetch_assoc($resultado)['nicknameUsuario'];
+        return ($resultado)? $resultado: null;
+    }
+    
+    public function deletarAvaliacao()
+    {
+        
+    }
 }
