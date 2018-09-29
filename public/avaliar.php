@@ -65,14 +65,15 @@ for ($i = mysqli_num_rows($resultado); $i > 0; $i--)
                             for($i =1; $i<=5; $i++)
                             {
                     ?>
+                                
                                 <ul>
-                                <li class="listaUl">
-                                    <input type="radio" name="<?php echo $criterio['idCriterio']; ?>" 
-                                           value="<?php echo $i; ?>" id="<?php echo $criterio['idCriterio'].$i; ?>">
-                                    <label class="espacamento" for="<?php echo $criterio['idCriterio'].$i; ?>" >
-                                         <?php echo $i; ?> 
-                                    </label>
-                                </li>
+                                    <li class="listaUl">
+                                        <input type="radio" name="<?php echo $criterio['idCriterio']; ?>" 
+                                               value="<?php echo $i; ?>" id="<?php echo $criterio['idCriterio'].$i; ?>">
+                                        <label class="espacamento" for="<?php echo $criterio['idCriterio'].$i; ?>" >
+                                             <?php echo $i; ?> 
+                                        </label>
+                                    </li>
                                 </ul>
                     <?php
                             }

@@ -125,4 +125,26 @@ class Canivetesuico {
         }
     }
     
+    // *************************************************************************************
+    // Método genérico para descobrir qual o maior valor de um campo
+    //**
+    //array = [
+    //  'nomeTabela' => $nomeTabela,
+    //  'nomeCampo'  => $nomeCampo,  
+    //];
+    //*/
+    // *************************************************************************************
+    public function maiorValorDoCampo($array){
+        $this->conexao = new Conexao();
+        $sql = 'SELECT MAX('.$array['nomeCampo'].') FROM '.$array['nomeTabela'].' ;';
+        $resultado =  $this->conexao->executaSQL($sql);
+
+        $valor = 0;
+        while ($linha = mysqli_fetch_array($resultado)){
+            $valor = $linha[0];
+        }
+        return $valor;
+    }
+   
+    
 }
