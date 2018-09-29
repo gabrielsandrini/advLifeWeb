@@ -46,4 +46,43 @@ class AvaliacaoDao
       $resultado = $crudGenerico->fQuery($sql);
       return $resultado;
     }
+    
+    public function consultarAvaliacoesRealizadas($idtrilha)
+    {
+        $sql= "select * 
+            from tbavaliacoesrealizadas as avaliacoes
+            where avaliacoes.idTrilha = '$idtrilha'
+            order by idAvaliacao desc";
+        $crudGenerico = new CrudGenerico();
+        $resultado = $crudGenerico->fQuery($sql);
+        return $resultado;
+    }
+
+    public function consultarValoresAvaliacao($idAvaliacao)
+    {
+        $sql ="select criterios.descricao, valores.nota";
+        $sql.=" from tbavaliacaovalores as valores, tbcriteriodeavaliacao as criterios";
+        $sql.=" where valores.idAvaliacao = '$idAvaliacao' and valores.idCriterio = criterios.idCriterio";
+        $sql.=" order by idAvaliacao desc";
+        
+        $crudGenerico = new CrudGenerico();
+        $resultado = $crudGenerico->fQuery($sql);
+        return $resultado;
+    }
+    /*
+    public function consultarAvaliacoes($idTrilha)
+    {
+       $sql= "select avaliacoes.idAvaliacao, avaliacoes.nicknameUsuario, 
+           avaliacoes.dataRealizacao,avaliacoes.comentario, criterios.descricao, valores.nota"; 
+       $sql.= " from tbavaliacaovalores as valores, tbcriteriodeavaliacao as criterios, 
+           tbavaliacoesrealizadas as avaliacoes, tbtrilha as trilha";
+       $sql.=" where avaliacoes.idTrilha = '35' and trilha.idTrilha = '35' and
+           avaliacoes.idAvaliacao = valores.idAvaliacao and valores.idCriterio = criterios.idCriterio";
+       $sql.=" order by idAvaliacao desc;";
+      $crudGenerico = new CrudGenerico();
+      $resultado = $crudGenerico->fQuery($sql);
+      return $resultado;
+    }
+     * 
+     */
 }

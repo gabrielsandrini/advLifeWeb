@@ -38,7 +38,7 @@ $title = isset($trilha['apelido']) ? $trilha['apelido'] : "Adv Life";
         <a href="Menu.php" class="botaorandom">Retornar</a>
         <a href="<?php echo "avaliar.php?idTrilha=".$trilha['idTrilha'] ;?>" 
            class="botaorandom">Avaliar</a>
-        <a href="mostraAvaliacao.php" class="botaorandom">Avaliações</a>
+        <a href="<?php echo "mostraAvaliacao.php?idTrilha=".$trilha['idTrilha'] ;?>" class="botaorandom">Avaliações</a>
         <a href="Realizar.php" class="botaorandom">Realizar Trilha!</a>
     </div>
 </body>

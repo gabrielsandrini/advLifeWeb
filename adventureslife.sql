@@ -33,11 +33,9 @@ CREATE TABLE IF NOT EXISTS `tbavaliacaovalores` (
   `idAvaliacao` int(11) NOT NULL,
   `idCriterio` smallint(6) NOT NULL,
   `nota` smallint(6) NOT NULL,
-  `comentario` varchar(140) DEFAULT NULL,
   PRIMARY KEY (`idAvaliacao`,`idCriterio`),
   KEY `idCriterio` (`idCriterio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 --
 -- Extraindo dados da tabela `tbavaliacaovalores`
 --
@@ -59,11 +57,11 @@ CREATE TABLE IF NOT EXISTS `tbavaliacoesrealizadas` (
   `nicknameUsuario` varchar(16) NOT NULL,
   `dataRealizacao` date NOT NULL,
   `idAvaliacao` int(11) NOT NULL AUTO_INCREMENT,
+  `comentario` varchar(140) NULL,
   PRIMARY KEY (`idAvaliacao`),
   KEY `idTrilha` (`idTrilha`),
   KEY `nicknameUsuario` (`nicknameUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
 --
 -- Extraindo dados da tabela `tbavaliacoesrealizadas`
 --

@@ -1,50 +1,56 @@
 <?php
 include_once("../Interface/ProtegerPaginas.php");
-?>
-<!DOCTYPE html>
+include_once'../DAO/AvaliacaoDao.php';
+include_once'../DAO/trilhaDao.php';
+$idTrilha = isset($_GET['idTrilha']) ? ($_GET['idTrilha']) : null; 
 
+$trilhaDao = new trilhaDao();
+$resultado = $trilhaDao->searchTracks($_GET);
+$apelido = ($resultado)? mysqli_fetch_assoc($resultado)['apelido'] : null;
+
+$avaliacaoDao = new AvaliacaoDao();
+$resultado = $avaliacaoDao->consultarAvaliacoesRealizadas($idTrilha);
+
+$avaliacoes = [];
+for ($i = mysqli_num_rows($resultado); $i > 0; $i--)
+{
+    $avaliacoes[] = mysqli_fetch_assoc($resultado);
+}
+?> 
+
+<!DOCTYPE html>
 <html>
 
-<head>
-    <title>Avaliações</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <head>
+        <title>Adv Life</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="cardAvaliacao.css">
+        <script type="text/javascript">
+            function deletarAvaliacao(id)
+            {
+                var confirmacao = confirm("Voce deseja realmente deletar esta avaliacao ?");
+                if(confirmacao){
+                    window.location.href="../Interface/deletarAvaliacao.php?idAvaliacao="+id;
+                    alert(id);
+                }else{
+                    alert("Ufa!!! Foi por pouco");
+                }
+            }
+        </script>
+    </head>
 
-</head>
-
-<body>
-    <div class="container2">
-        <header style="margin: 0px 30%">
-            <h1 id="tituloAvaliacao">Avaliações</h1>
-            <h3>"nome da trilha"</h3>
-            <div class="clearboth"></div>
-        </header>
-
-        <section class="avaliacao">
-            <aside class="avaliacao">
-                <div>
-                    <img src="Imagens e coisas de mídia/filler.gif" alt="Foto do usuario" class="fotoUsuario">
-                </div>
-
-                <div class="nomeUsuario">
-                    "nome do usuario"
-                </div>
-
-            </aside>
-
-            <div class="bordaAvaliacao">
-
-                <strong>"Comentário sobre a experiência na trilha"</strong>
-            </div>
-        </section>
-
-        <footer style="padding-top: 390px;">
+    <body>
+        <div class="container">
+         <h1 class="tituloTelaDeBusca"><?php echo $apelido?></h1>
+            <?php 
+               foreach($avaliacoes as $avaliacao)
+               {
+                   include 'cardAvaliacao.php';
+               }
+            ?>
             <a href="Menu.php" class="botaorandom">Retornar</a>
-        </footer>
-    </div>
-
-
-</body>
-
-</html>
+        </div>
+    </body>
+</html> 
