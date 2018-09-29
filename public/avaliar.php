@@ -1,10 +1,18 @@
 <?php 
- $idTrilha = isset($_GET['idTrilha']) ? $_GET['idTrilha'] : die("Erro na obtenção do id"); 
  include_once'../DAO/trilhaDao.php';
-$array = [ 'id' => $idTrilha];
-$trilhaDao = new trilhaDao();
-$resultado = $trilhaDao->searchTracks($array);
-$trilha = mysqli_fetch_assoc($resultado);
+ include_once'../DAO/AvaliacaoDao.php';
+ 
+ $trilhaDao = new trilhaDao();
+ $resultado = $trilhaDao->searchTracks($_GET);
+ $trilha = mysqli_fetch_assoc($resultado);
+ 
+ $avaliacaoDao = new AvaliacaoDao();
+ $resultado = $avaliacaoDao->retornarCriterios();
+ $criterios = [];
+for ($i = mysqli_num_rows($resultado); $i > 0; $i--)
+{
+    $criterios[] = mysqli_fetch_assoc($resultado);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +22,18 @@ $trilha = mysqli_fetch_assoc($resultado);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+        ul, li{
+           display: inline;
+        }
+        .espacamento{
+            padding: 2%;
+        }
+        span{
+            font-family: sans-serif;
+            font-weight: 520;
+        }
+    </style>
     <script type="text/javascript">
         function EnviadaComSucesso() {
             alert("Avaliacao enviada com sucesso");
@@ -36,92 +56,30 @@ $trilha = mysqli_fetch_assoc($resultado);
             <h4 style="text-align: center"><?php echo $trilha['apelido']; ?></h4>
             <form method="POST" action="../interface/realizarAvaliacao.php">
                 <fieldset>
-                    <input type="hidden" name="idTrilha" value="<?php echo $idTrilha; ?>"> <br> <br>
-                    Dificuldade:
-                    <ul>
-                        <li class="listaUl">
-                            <input type="radio" name="Dificuldade" value="1" id="d1">
-                            <label for="d1">1</label>
-                        </li>
+                    <input type="hidden" name="idTrilha" value="<?php echo $_GET['idTrilha']; ?>">
+                    <?php
+                        foreach ($criterios as $criterio)
+                        {
+                            echo '<span>'.$criterio['descricao']." : </span><br> >";
 
-                        <li class="listaUl">
-                            <input type="radio" name="Dificuldade" value="2" id="d2">
-                            <label for="d2">2</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="Dificuldade" value="3" id="d3">
-                            <label for="d3">3</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="Dificuldade" value="4" id="d4">
-                            <label for="d4">4</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="Dificuldade" value="5" id="d5">
-                            <label for="d5">5</label>
-                        </li>
-
-                    </ul>
-
-                    <br> <br> <br> Preservação da trilha:
-                    <ul>
-                        <li class="listaUl">
-                            <input type="radio" name="preservacao" value="1" id="p1">
-                            <label for="p1">1</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="preservacao" value="2" id="p2">
-                            <label for="p2">2</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="preservacao" value="3" id="p3">
-                            <label for="p3">3</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="preservacao" value="4" id="p4">
-                            <label for="p4">4</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="preservacao" value="5" id="p5">
-                            <label for="p5">5</label>
-                        </li>
-
-                    </ul>
-
-                    <br> <br> <br> Nível de risco:
-                    <ul>
-                        <li class="listaUl">
-                            <input type="radio" name="risco" value="1" id="r1">
-                            <label for="r1">1</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="risco" value="2" id="r2">
-                            <label for="r2">2</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="risco" value="3" id="r3">
-                            <label for="r3">3</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="risco" value="4" id="r4">
-                            <label for="r4">4</label>
-                        </li>
-
-                        <li class="listaUl">
-                            <input type="radio" name="risco" value="5" id="r5">
-                            <label for="r5">5</label>
-                        </li>
-                    </ul>
+                            for($i =1; $i<=5; $i++)
+                            {
+                    ?>
+                                <ul>
+                                <li class="listaUl">
+                                    <input type="radio" name="<?php echo $criterio['idCriterio']; ?>" 
+                                           value="<?php echo $i; ?>" id="<?php echo $criterio['idCriterio'].$i; ?>">
+                                    <label class="espacamento" for="<?php echo $criterio['idCriterio'].$i; ?>" >
+                                         <?php echo $i; ?> 
+                                    </label>
+                                </li>
+                                </ul>
+                    <?php
+                            }
+                        
+                            echo '<br><br><br>';
+                        }
+                    ?>
                     <br>
                     <div style="margin:0px 45%">
                         <input type="submit" value="Enviar">

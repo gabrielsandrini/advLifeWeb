@@ -90,10 +90,10 @@ CREATE TABLE IF NOT EXISTS `tbcriteriodeavaliacao` (
 --
 
 INSERT INTO `tbcriteriodeavaliacao` (`idCriterio`, `descricao`) VALUES
-(1, 'Dificuldade da trilha'),
-(2, 'estado de preservacao da trilha'),
-(3, 'sinalizacao da trilha'),
-(4, 'seguranca da trilha');
+(1, 'Dificuldade'),
+(2, 'Estado de preservacao'),
+(3, 'Sinalizacao'),
+(4, 'Seguranca');
 
 -- --------------------------------------------------------
 
