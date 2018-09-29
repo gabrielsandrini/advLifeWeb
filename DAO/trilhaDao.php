@@ -44,26 +44,21 @@ class trilhaDao
     }
     public function deleteTracks($idTrilha)
     {
-        $sql = "select idAvaliacao from tbavaliacoesrealizadas where idTrilha = $idTrilha";
         $crudGenerico = new CrudGenerico();
+        $avaliacaoDao = new AvaliacaoDao();
+        $sql = "select idAvaliacao from tbavaliacoesrealizadas where idTrilha = $idTrilha";
         $resultado = $crudGenerico->fQuery($sql);
-        if(mysqli_num_rows($resultado) != 0){
-            $resultado = mysqli_fetch_assoc($resultado);
-            $idAvaliacao = $resultado['idAvaliacao'];
-            
-            $sql = "delete from tbavaliacaovalores where idAvaliacao = $idAvaliacao ";
-            $crudGenerico->fQuery($sql);
-            die();
-            $sql = "delete from tbavaliacoesrealizadas where idAvaliacao = $idAvaliacao";
-            $crudGenerico->fQuery($sql);
+        
+        while($linha = mysqli_fetch_assoc($resultado) != 0)
+        {
+            $idAvaliacao = $linha['idAvaliacao'];
+            $avaliacaoDao ->deletarAvaliacao($idAvaliacao);
         }
+        
         $sql = "delete from tbtrilha where idTrilha = $idTrilha";
         $resultado = $crudGenerico->fQuery($sql);
         
-        if($resultado){
-            return TRUE;
-        }
-        return false;
+        return ($resultado) ? true : false;
     }
     
     public function searchHistorical($nicknameUsuario)

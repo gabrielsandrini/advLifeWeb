@@ -83,8 +83,13 @@ class AvaliacaoDao
         return ($resultado)? $resultado: null;
     }
     
-    public function deletarAvaliacao()
+    public function deletarAvaliacao($idAvaliacao)
     {
+        $sql = "delete from tbavaliacaovalores where idAvaliacao = $idAvaliacao ";
+        $crudGenerico->fQuery($sql);
+        $sql = "delete from tbavaliacoesrealizadas where idAvaliacao = $idAvaliacao";
+        $resultado = $crudGenerico->fQuery($sql);
         
+        return ($resultado) ? true : false;
     }
 }
