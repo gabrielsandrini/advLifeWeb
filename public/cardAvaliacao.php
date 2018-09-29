@@ -5,7 +5,7 @@
        <div>
           <?php
           if($_SESSION["nicknameUsuario"] == $avaliacao['nicknameUsuario']){
-             echo "<a href='#' onclick='deletarAvaliacao(".$avaliacao['idAvaliacao'].")'>";
+             echo "<a href='#' onclick='deletarAvaliacao(".$avaliacao['idAvaliacao'].",".$idTrilha.")'>";
              echo "<img src=\"../Imagens e coisas de mídia/delete.png\" alt=\"deletar\" style=\"float:right;\"/>"; 
              echo "</a>";
           }

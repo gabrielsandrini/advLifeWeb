@@ -86,6 +86,7 @@ class AvaliacaoDao
     public function deletarAvaliacao($idAvaliacao)
     {
         $sql = "delete from tbavaliacaovalores where idAvaliacao = $idAvaliacao ";
+        $crudGenerico = new CrudGenerico();
         $crudGenerico->fQuery($sql);
         $sql = "delete from tbavaliacoesrealizadas where idAvaliacao = $idAvaliacao";
         $resultado = $crudGenerico->fQuery($sql);

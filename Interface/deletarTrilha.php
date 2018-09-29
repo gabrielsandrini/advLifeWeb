@@ -6,5 +6,6 @@ $sucesso = $trilhaDao->deleteTracks($idTrilha);
 
 if($sucesso)
 {
-    echo "Trilha Deletada ...";
+    echo "Trilha deletada com sucesso... <br>";
+    echo "<a href='../public/Menu.php'><button>Voltar ao menu</button></a>";
 }

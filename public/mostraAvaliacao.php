@@ -28,11 +28,11 @@ for ($i = mysqli_num_rows($resultado); $i > 0; $i--)
         <link href="style.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="cardAvaliacao.css">
         <script type="text/javascript">
-            function deletarAvaliacao(id)
+            function deletarAvaliacao(idAvaliacao, idTrilha)
             {
                 var confirmacao = confirm("Voce deseja realmente deletar esta avaliacao ?");
                 if(confirmacao){
-                    window.location.href="../Interface/deletarAvaliacao.php?idAvaliacao="+id;
+                    window.location.href="../Interface/deletarAvaliacao.php?idAvaliacao="+idAvaliacao+"&idTrilha="+idTrilha;
                     alert(id);
                 }else{
                     alert("Ufa!!! Foi por pouco");

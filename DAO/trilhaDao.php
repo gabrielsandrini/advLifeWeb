@@ -1,5 +1,6 @@
 <?php
 include_once 'classeCrudGenerico.php';
+include_once 'avaliacaoDao.php';
 class trilhaDao
 {
 
@@ -49,10 +50,10 @@ class trilhaDao
         $sql = "select idAvaliacao from tbavaliacoesrealizadas where idTrilha = $idTrilha";
         $resultado = $crudGenerico->fQuery($sql);
         
-        while($linha = mysqli_fetch_assoc($resultado) != 0)
+        while($linha = mysqli_fetch_assoc($resultado))
         {
             $idAvaliacao = $linha['idAvaliacao'];
-            $avaliacaoDao ->deletarAvaliacao($idAvaliacao);
+            $avaliacaoDao->deletarAvaliacao($idAvaliacao);
         }
         
         $sql = "delete from tbtrilha where idTrilha = $idTrilha";
