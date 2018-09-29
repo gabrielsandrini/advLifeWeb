@@ -69,20 +69,4 @@ class AvaliacaoDao
         $resultado = $crudGenerico->fQuery($sql);
         return $resultado;
     }
-    /*
-    public function consultarAvaliacoes($idTrilha)
-    {
-       $sql= "select avaliacoes.idAvaliacao, avaliacoes.nicknameUsuario, 
-           avaliacoes.dataRealizacao,avaliacoes.comentario, criterios.descricao, valores.nota"; 
-       $sql.= " from tbavaliacaovalores as valores, tbcriteriodeavaliacao as criterios, 
-           tbavaliacoesrealizadas as avaliacoes, tbtrilha as trilha";
-       $sql.=" where avaliacoes.idTrilha = '35' and trilha.idTrilha = '35' and
-           avaliacoes.idAvaliacao = valores.idAvaliacao and valores.idCriterio = criterios.idCriterio";
-       $sql.=" order by idAvaliacao desc;";
-      $crudGenerico = new CrudGenerico();
-      $resultado = $crudGenerico->fQuery($sql);
-      return $resultado;
-    }
-     * 
-     */
 }
