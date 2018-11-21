@@ -120,6 +120,8 @@ include_once("../Interface/ProtegerPaginas.php");
                         <input type="submit" value="Enviar" style="font-size: 20px; background-color: grey;">
                     </div>
                 </fieldset>
+                
+                <input type="hidden" name="geolocation" id="geolocation" value="<?php echo $_POST["geolocation"]?>">
             </form>
 
         </div>
