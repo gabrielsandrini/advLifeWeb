@@ -121,7 +121,7 @@ include_once("../Interface/ProtegerPaginas.php");
                     </div>
                 </fieldset>
                 
-                <input type="hidden" name="geolocation" id="geolocation" value="<?php echo $_POST["geolocation"]?>">
+                <input type="hidden" name="rota" id="rota" value="<?php echo $_POST["geolocation"]?>">
             </form>
 
         </div>

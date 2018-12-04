@@ -88,6 +88,7 @@ and open the template in the editor.
                 input.value += position.coords.latitude;
                 input.value += " ";
                 input.value += position.coords.longitude;
+                firstTimeRecording = false;
             }
            
            var id = null;
