@@ -1,3 +1,10 @@
+<?php
+ session_start();
+if(isset($_SESSION["nicknameUsuario"]))
+{
+    header("Location: ../public/Menu.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 
