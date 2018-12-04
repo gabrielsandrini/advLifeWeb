@@ -54,7 +54,7 @@ and open the template in the editor.
             
             function arredondarDistancia(distanciaTotal)
             {
-                return distanciaTotal.toFixed(2);
+                return distanciaTotal.toFixed(1);
             }
             
             function finish()
@@ -62,7 +62,7 @@ and open the template in the editor.
                 var escolha;
                 escolha = window.confirm("Tem certeza que deseja temrinar a gravação ?");
                 if (escolha) {
-                    $("#distanciaHidden").value = distanciaTotal;
+                    $("#distanciaHidden").value = parseFloat( arredondarDistancia(distanciaTotal) );
                     $("#form").submit();
                 }
             }
