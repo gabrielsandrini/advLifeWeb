@@ -35,9 +35,7 @@ and open the template in the editor.
                   Math.sin(dLon / 2) * Math.sin(dLon / 2);
                 var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
                 var d = R * c;
-
-                if(isMiles) d /= 1.60934;
-
+                
                 return d;
               }
             
@@ -48,10 +46,15 @@ and open the template in the editor.
                 distanciaTotal += distanciaEntreDoisPontos;
                 gravaDistancia(distanciaTotal);
             }
-            var distanciaLabel = document.getElementById("distanciaLabel");
+
             function gravaDistancia(distanciaTotal)
             {
-                distanciaLabel.innerHTML= distanciaTotal;
+                $("#distanciaLabel").html( arredondarDistancia(distanciaTotal) + " Km" );
+            }
+            
+            function arredondarDistancia(distanciaTotal)
+            {
+                return distanciaTotal.toFixed(2);
             }
             
             function finish()
@@ -118,7 +121,6 @@ and open the template in the editor.
             
             var firstTimeRecording = true;
             var isSecondTimeRecordingOrAfter = false;
-            var
             var lastLong, lastLat;
             function recordPosition(position)
             {
@@ -163,6 +165,7 @@ and open the template in the editor.
         </script>
         <script type="text/javascript">
             $(document).ready(function() {
+                gravaDistancia(0);
                 getLocation();
             });
         </script>
@@ -171,9 +174,8 @@ and open the template in the editor.
     <body>
         <div class="container">
             <header class="pagina"> Registro de Trilhas</header>
-            <p style="text-align: center; font-size: 26px; font-family: Papyrus;">Nome da Trilha</p>
             <div class="block">Tempo em atividade</div>
-            <div class="block" id="distanciaLabel">Distância percorrida</div>
+            <div class="block" id="distanciaLabel" style="font-family: sans-serif;"></div>
             <form id="form" method="post" action="RegistroTrilhaPT2.php">
                 <input type="hidden" name="geolocation" id="geolocation" value="">
                 <input type="hidden" name="distancia" id="distanciaHidden" value="">
