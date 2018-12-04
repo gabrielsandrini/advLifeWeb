@@ -1,5 +1,7 @@
 <?php
 include_once("../Interface/ProtegerPaginas.php");
+$geolocation = $_POST["geolocation"];
+$distancia = $_POST["distancia"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -101,9 +103,7 @@ include_once("../Interface/ProtegerPaginas.php");
                     <br> Obstáculos: <br>
                     <textarea name="Obstaculos" rows="4" cols="70">
                </textarea>
-                     <br>
-                    <br> Distancia:
-                    <input name="distancia" type="number" >
+                    <input name="distancia" type="hidden" value="<?php echo $distancia ?>" >
                     <br>                    
                     <br> Tipo de mata: 
                     <select name="idMata">
@@ -121,7 +121,7 @@ include_once("../Interface/ProtegerPaginas.php");
                     </div>
                 </fieldset>
                 
-                <input type="hidden" name="rota" id="rota" value="<?php echo $_POST["geolocation"]?>">
+                <input type="hidden" name="rota" id="rota" value="<?php echo $geolocation?>">
             </form>
 
         </div>

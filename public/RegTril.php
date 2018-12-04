@@ -16,12 +16,50 @@ and open the template in the editor.
         <link href="style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="JQuery.js"></script>
         <script type="text/javascript">
+            var distancia=0;
+            function haversineDistance(lat1,lon1,lat2,lon2) 
+            {
+                function toRad(x) 
+                {
+                  return x * Math.PI / 180;
+                }
+
+                var R = 6371; // km
+
+                var x1 = lat2 - lat1;
+                var dLat = toRad(x1);
+                var x2 = lon2 - lon1;
+                var dLon = toRad(x2)
+                var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+                  Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                var d = R * c;
+
+                if(isMiles) d /= 1.60934;
+
+                return d;
+              }
+            
+            var distanciaTotal = 0;
+            function  calculaDistancia(lastLat, lastLong, lat, long)
+            {
+                var distanciaEntreDoisPontos =  haversineDistance(lastLat, lastLong, lat, long);
+                distanciaTotal += distanciaEntreDoisPontos;
+                gravaDistancia(distanciaTotal);
+            }
+            var distanciaLabel = document.getElementById("distanciaLabel");
+            function gravaDistancia(distanciaTotal)
+            {
+                distanciaLabel.innerHTML= distanciaTotal;
+            }
             
             function finish()
             {
                 var escolha;
                 escolha = window.confirm("Tem certeza que deseja temrinar a gravação ?");
                 if (escolha) {
+                    $("#distanciaHidden").value = distanciaTotal;
                     $("#form").submit();
                 }
             }
@@ -79,16 +117,32 @@ and open the template in the editor.
             }
             
             var firstTimeRecording = true;
+            var isSecondTimeRecordingOrAfter = false;
+            var
+            var lastLong, lastLat;
             function recordPosition(position)
             {
                 var input = document.getElementById("geolocation");    
                 if(!firstTimeRecording){
                     input.value += ",";
+                    isSecondTimeRecordingOrAfter = true;
                 }
-                input.value += position.coords.latitude;
+                
+                var lat = position.coords.latitude;
+                var long = position.coords.longitude;
+                
+                input.value += lat;
                 input.value += " ";
-                input.value += position.coords.longitude;
+                input.value += long;
                 firstTimeRecording = false;
+                if(isSecondTimeRecordingOrAfter){
+                    calculaDistancia(lastLat, lastLong, lat, long);
+                }
+                //A distancia deve ser aclculada antes deste ponto no codigo
+                //Esta parte a seguir guarda as coordenadas em uma variavél de escopo global
+                //para conseguir calcular a distancia entre este ponto e o que será obtido em seguida
+                lastLat = lat;
+                lastLong = long;
             }
            
            var id = null;
@@ -119,9 +173,10 @@ and open the template in the editor.
             <header class="pagina"> Registro de Trilhas</header>
             <p style="text-align: center; font-size: 26px; font-family: Papyrus;">Nome da Trilha</p>
             <div class="block">Tempo em atividade</div>
-            <div class="block">Distância percorrida</div>
+            <div class="block" id="distanciaLabel">Distância percorrida</div>
             <form id="form" method="post" action="RegistroTrilhaPT2.php">
                 <input type="hidden" name="geolocation" id="geolocation" value="">
+                <input type="hidden" name="distancia" id="distanciaHidden" value="">
             </form>
             <a href="#" id="pause" class="botaorandom" onclick="alteraEstadoGravacao()" style="border-radius:100%; margin-left: 100px;">Pause</a>
             <a class="botaorandom" onclick="finish()" href="#" style="border-radius:100%; margin-left: 400px;">Finish</a>
