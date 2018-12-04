@@ -117,7 +117,7 @@ $distancia = $_POST["distancia"];
 
                     <br> <br> <br> <br>
                     <div style="margin:0px 45%">
-                        <input type="submit" value="Enviar" style="font-size: 20px; background-color: grey;">
+                        <input type="submit" value="Enviar" id="button" style="font-size: 20px; background-color: grey;">
                     </div>
                 </fieldset>
                 
