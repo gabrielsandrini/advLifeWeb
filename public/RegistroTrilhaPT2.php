@@ -74,7 +74,7 @@ if(!$distancia){
                 <fieldset>
                     <br>
                     <p id="feedback"></p>
-                    Nome da Trilha: <input type="text" name="apelido">
+                    Nome da Trilha: <input type="text" name="apelido" required>
                     <br> <br> Dificuldade:
                     <ul>
                         <li class="listaUl">

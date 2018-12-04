@@ -35,7 +35,7 @@ class trilhaDao
         {
             $sql .= " and nicknameUsuario like '%$nickname%'";
         }
-
+        $sql .= " order by idTrilha desc";
         return $sql;
     }
 
