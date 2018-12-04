@@ -249,11 +249,11 @@ input {
 .block {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    font-family: Papyrus;
+    font-family: sans-serif;
     text-align: center;
     font-size: 50px;
     width: 50%;
-    margin-left: 200px;
+    margin-left: 25%;
     margin-top: 10px
 }
 

@@ -100,6 +100,7 @@ class trilhaDao
             $stmt->bindParam(6, $nicknameUsuario);
             $stmt->execute();
             $this->insereRota($conexao->lastInsertId(), $trilha->getRota());
+            return true;
         } catch (PDOException $e){
             echo "Erro: " . $e->getMessage();
              echo "Insere Trilha";

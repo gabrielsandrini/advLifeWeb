@@ -2,6 +2,9 @@
 include_once("../Interface/ProtegerPaginas.php");
 $geolocation = $_POST["geolocation"];
 $distancia = $_POST["distancia"];
+if(!$distancia){
+    $distancia = 0.0;
+}
 ?>
 <!DOCTYPE html>
 <html>

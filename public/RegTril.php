@@ -149,7 +149,25 @@ and open the template in the editor.
         
         <!--Functions about the timer-->
         <script type="text/javascript">
-        
+            var intervalo;
+            var s = 1;
+            var m = 0;
+            var h = 0;
+
+            function resumeCronometro() {
+                    intervalo = window.setInterval(function() {
+                            if (s == 60) { m++; s = 0; }
+                            if (m == 60) { h++; s = 0; m = 0; }
+                            if (h < 10) document.getElementById("hora").innerHTML = "0" + h + "h"; else document.getElementById("hora").innerHTML = h + "h";
+                            if (s < 10) document.getElementById("segundo").innerHTML = "0" + s + "s"; else document.getElementById("segundo").innerHTML = s + "s";
+                            if (m < 10) document.getElementById("minuto").innerHTML = "0" + m + "m"; else document.getElementById("minuto").innerHTML = m + "m";		
+                            s++;
+                    },1000);
+            }
+
+            function pausarCronometro() {
+                    window.clearInterval(intervalo);
+            }
         </script>
         
         <!--Another mixed functions:-->
@@ -168,11 +186,14 @@ and open the template in the editor.
             function alteraEstadoGravacao()
             {
                 pausado = !pausado;
-                if (pausado) {
+                if (pausado) { //Pausa:
                     document.getElementById("pause").innerHTML = "Play";
                     turnOffGetLocation();
-                } else {
+                    pausarCronometro();
+                    
+                } else { //Resume:
                     document.getElementById("pause").innerHTML = "Pause";
+                    resumeCronometro();
                     getLocation();
                 }
             }
@@ -182,6 +203,7 @@ and open the template in the editor.
         <script type="text/javascript">
             $(document).ready(function() {
                 gravaDistancia(0);
+                resumeCronometro();
                 getLocation();
             });
         </script>
@@ -190,14 +212,16 @@ and open the template in the editor.
     <body>
         <div class="container">
             <header class="pagina"> Registro de Trilhas</header>
-            <div class="block">Tempo em atividade</div>
+            <div class="block">
+                <span id="hora">00h</span><span id="minuto">00m</span><span id="segundo">00s</span><br>
+            </div>
             <div class="block" id="distanciaLabel" style="font-family: sans-serif;"></div>
             <form id="form" method="post" action="RegistroTrilhaPT2.php">
                 <input type="hidden" name="geolocation" id="geolocation" value="">
                 <input type="hidden" name="distancia" id="distanciaHidden" value="">
             </form>
-            <a href="#" id="pause" class="botaorandom" onclick="alteraEstadoGravacao()" style="border-radius:100%; margin-left: 100px;">Pause</a>
-            <a class="botaorandom" onclick="finish()" href="#" style="border-radius:100%; margin-left: 400px;">Finish</a>
+            <a href="#" id="pause" class="botaorandom" onclick="alteraEstadoGravacao()" style="border-radius:100%; margin-left: 10%;">Pause</a>
+            <a class="botaorandom" onclick="finish()" href="#" style="border-radius:100%; margin-left: 60%;">Finish</a>
         </div>
     </body>
 
