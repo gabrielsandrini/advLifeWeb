@@ -24,16 +24,16 @@ and open the template in the editor.
                 switch (error.code)
                 {
                 case error.PERMISSION_DENIED:
-                        alert("Usuário rejeitou a solicitação de Geolocalização.");
+                        $("#feedbackGps").html("Usuário rejeitou a solicitação de Geolocalização.");
                 break;
                 case error.POSITION_UNAVAILABLE:
-                        alert("Localização indisponível.");
+                        $("#feedbackGps").html("Localização indisponível.");
                 break;
                 case error.TIMEOUT:
-                        alert("A requisição expirou.");
+                        $("#feedbackGps").html("A requisição expirou.");
                 break;
                 case error.UNKNOWN_ERROR:
-                        alert("Algum erro desconhecido aconteceu.");
+                        $("#feedbackGps").html("Algum erro desconhecido aconteceu.");
                 break;
                 }
            }
@@ -42,6 +42,7 @@ and open the template in the editor.
             var firstLoop = true;
             function comparePosition(position)
             {
+                $("#feedbackGps").html();
                 if(firstLoop)
                 {
                     firstLoop = false;
@@ -222,6 +223,9 @@ and open the template in the editor.
             </form>
             <a href="#" id="pause" class="botaorandom" onclick="alteraEstadoGravacao()" style="border-radius:100%; margin-left: 10%;">Pause</a>
             <a class="botaorandom" onclick="finish()" href="#" style="border-radius:100%; margin-left: 60%;">Finish</a>
+            <br/><br/><br/>
+            <span style="color:red; font-weight: bolder; text-align: center; font-size: 150%;
+                  margin-left: 35%" id="feedbackGps"></span>
         </div>
     </body>
 

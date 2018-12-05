@@ -58,7 +58,7 @@ class trilhaDao
             $idAvaliacao = $linha['idAvaliacao'];
             $avaliacaoDao->deletarAvaliacao($idAvaliacao);
         }
-
+        $this->deleteRota($idTrilha);
         $sql = "delete from tbtrilha where idTrilha = $idTrilha";
         $resultado = $crudGenerico->fQuery($sql);
 
@@ -108,7 +108,7 @@ class trilhaDao
         
     }
 
-    public function insereRota($idTrilha, $rota)
+    private function insereRota($idTrilha, $rota)
     {
        if($rota){
             $factoryConnection = new FactoryConnection();
@@ -133,5 +133,21 @@ class trilhaDao
                 var_dump($sql);
             }
         }
+    }
+    
+    private function deleteRota($idTrilha){
+         $factoryConnection = new FactoryConnection();
+            $conexao = $factoryConnection->getConnection();
+            
+            $sql = "delete from tbrota where idTrilha = ?";
+            
+            try{
+                $stmt = $conexao->prepare($sql);
+                $stmt->bindParam(1, $idTrilha);
+                $stmt->execute();
+            } catch (PDOException $e) {
+                $conexao->rollback();
+                echo "Erro: " . $e->getMessage();
+            }
     }
 }
